@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberSafe | Awareness and Training</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #17243b;
+    line-height: 1.6;
+}
+
+header {
+    background: #102344;
+    color: white;
+    padding: 22px 6%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #4de0c1;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.hero {
+    background: linear-gradient(135deg, #102344, #126b80);
+    color: white;
+    padding: 65px 7%;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 0 auto 25px;
+}
+
+.button {
+    display: inline-block;
+    background: #4de0c1;
+    color: #102344;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+section {
+    padding: 40px 6%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #102344;
+}
+
+.intro {
+    text-align: center;
+    max-width: 750px;
+    margin: auto;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 23px;
+    border-radius: 12px;
+    box-shadow: 0 3px 14px #10234412;
+    border-top: 4px solid #4de0c1;
+}
+
+.card h3 {
+    margin: 10px 0;
+    color: #102344;
+}
+
+.icon {
+    font-size: 32px;
+}
+
+.quiz-box {
+    background: white;
+    max-width: 650px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 14px #10234412;
+}
+
+.question {
+    margin-bottom: 18px;
+}
+
+.question label {
+    display: block;
+    padding: 9px;
+    margin: 6px 0;
+    background: #f0f5fa;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.question input {
+    margin-right: 8px;
+}
+
+#result {
+    margin-top: 18px;
+    font-weight: bold;
+}
+
+.notice {
+    background: #e0f7f1;
+    padding: 18px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+footer {
+    background: #102344;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+@media (max-width: 500px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    nav a {
+        margin-left: 5px;
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">🛡️ CyberSafe</div>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#training">Training</a>
+            <a href="#quiz">Quiz</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+    <h1>Stay Safe in the Digital World</h1>
+    <p>
+        Welcome to CyberSafe, a cybersecurity awareness and
+        training platform designed to help students identify
+        online threats, protect personal information and
+        develop safer digital habits.
+    </p>
+    <a href="#training" class="button">Start Learning</a>
+</section>
+
+<section>
+    <h2>About Our Platform</h2>
+    <p class="intro">
+        CyberSafe promotes cybersecurity awareness through
+        educational resources and interactive assessments.
+        Learn how to recognize threats and make informed
+        decisions when using the internet.
+    </p>
+</section>
+
+<section id="training">
+    <h2>Cybersecurity Training Modules</h2>
+
+    <div class="cards">
+
+        <article class="card">
+            <div class="icon">🎣</div>
+            <h3>Phishing Awareness</h3>
+            <p>
+                Learn to recognize suspicious emails, fake
+                websites, unexpected links and messages that
+                attempt to steal personal information.
+            </p>
+        </article>
+
+        <article class="card">
+            <div class="icon">🔐</div>
+            <h3>Password Security</h3>
+            <p>
+                Create long, unique passwords for different
+                accounts. Use a password manager and enable
+                multi-factor authentication where possible.
+            </p>
+        </article>
+
+        <article class="card">
+            <div class="icon">🦠</div>
+            <h3>Malware Awareness</h3>
+            <p>
+                Understand viruses, spyware and ransomware.
+                Avoid suspicious downloads and keep your
+                devices and applications updated.
+            </p>
+        </article>
+
+        <article class="card">
+            <div class="icon">📱</div>
+            <h3>Social Media Safety</h3>
+            <p>
+                Protect your privacy, review account settings
+                and think carefully before sharing personal
+                information or clicking unknown links.
+            </p>
+        </article>
+
+        <article class="card">
+            <div class="icon">📶</div>
+            <h3>Safe Internet Use</h3>
+            <p>
+                Use trusted networks, secure websites and
+                updated software. Avoid sensitive transactions
+                on untrusted devices or networks.
+            </p>
+        </article>
+
+        <article class="card">
+            <div class="icon">🚨</div>
+            <h3>Online Fraud Prevention</h3>
+            <p>
+                Recognize suspicious payment requests, fake
+                giveaways and impersonation scams. Verify
+                requests through trusted channels.
+            </p>
+        </article>
+
+    </div>
+</section>
+
+<section>
+    <h2>Quick Safety Tips</h2>
+    <div class="intro">
+        <p>✅ Never share your password or verification codes.</p>
+        <p>✅ Verify links before entering personal information.</p>
+        <p>✅ Enable multi-factor authentication.</p>
+        <p>✅ Install updates from trusted sources.</p>
+        <p>✅ Report suspicious activity to the appropriate authority.</p>
+    </div>
+</section>
+
+<section id="quiz">
+    <h2>Cybersecurity Knowledge Quiz</h2>
+
+    <div class="quiz-box">
+        <p>Test your understanding with these three questions.</p>
+        <br>
+
+        <form id="quizForm">
+
+            <div class="question">
+                <p><strong>1. What should you do with a suspicious email link?</strong></p>
+
+                <label>
+                    <input type="radio" name="q1" value="a">
+                    Click immediately
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="b">
+                    Verify the sender and link first
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="c">
+                    Forward it to everyone
+                </label>
+            </div>
+
+            <div class="question">
+                <p><strong>2. Which password practice is safer?</strong></p>
+
+                <label>
+                    <input type="radio" name="q2" value="a">
+                    Using your name for every account
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="b">
+                    Sharing passwords with friends
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="c">
+                    Using unique, long passwords
+                </label>
+            </div>
+
+            <div class="question">
+                <p><strong>3. What is phishing?</strong></p>
+
+                <label>
+                    <input type="radio" name="q3" value="a">
+                    An attempt to trick people into revealing information
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="b">
+                    Updating a computer
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="c">
+                    Creating a strong password
+                </label>
+            </div>
+
+            <button class="button" type="submit">
+                Submit Answers
+            </button>
+
+        </form>
+
+        <div id="result" aria-live="polite"></div>
+    </div>
+</section>
+
+<section>
+    <div class="notice">
+        <strong>Educational notice:</strong>
+        This platform provides cybersecurity education.
+        It does not collect real passwords or conduct attacks.
+        Always practise cybersecurity responsibly.
+    </div>
+</section>
+</main>
+
+<footer>
+    <p>CyberSafe | Cyber Security Awareness and Training Platform</p>
+    <p>Student Learning Project</p>
+</footer>
+
+<script>
+document.getElementById("quizForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const answers = {
+        q1: "b",
+        q2: "c",
+        q3: "a"
+    };
+
+    let score = 0;
+    let unanswered = 0;
+
+    for (const question in answers) {
+        const selected = document.querySelector(
+            'input[name="' + question + '"]:checked'
+        );
+
+        if (!selected) {
+            unanswered++;
+        } else if (selected.value === answers[question]) {
+            score++;
+        }
+    }
+
+    const result = document.getElementById("result");
+
+    if (unanswered > 0) {
+        result.textContent =
+            "Please answer all three questions before submitting.";
+        return;
+    }
+
+    result.textContent =
+        "Your score: " + score + "/3. " +
+        (score === 3
+            ? "Excellent! You understand these security basics."
+            : "Good effort! Review the training modules and try again.");
+});
+</script>
+
+</body>
+</html>
