@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CyberSafe | Student Dashboard</title><style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #17243b;
+}
+
+header {
+    background: #102344;
+    color: white;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    color: #4de0c1;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.welcome {
+    background: linear-gradient(135deg, #102344, #126b80);
+    color: white;
+    padding: 40px 6%;
+}
+
+.welcome h1 {
+    margin-bottom: 10px;
+}
+
+section {
+    padding: 30px 6%;
+}
+
+h2 {
+    color: #102344;
+    margin-bottom: 20px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 14px #10234415;
+    border-left: 4px solid #4de0c1;
+}
+
+.card h3 {
+    color: #102344;
+    margin: 10px 0;
+}
+
+.number {
+    font-size: 30px;
+    font-weight: bold;
+    color: #087e83;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #087e83;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.progress-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.progress {
+    background: #e5eaf0;
+    height: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.progress-bar {
+    background: #4de0c1;
+    width: 0%;
+    height: 100%;
+}
+
+.tips {
+    background: #e0f7f1;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+footer {
+    background: #102344;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+@media(max-width: 500px) {
+    header {
+        justify-content: center;
+    }
+
+    header a {
+        font-size: 13px;
+        margin: 5px;
+    }
+}
+</style></head><body><header><div class="logo">🛡️ CyberSafe</div><nav>
+<a href="index.html">Home</a>
+<a href="lessons.html">Lessons</a>
+<a href="quiz.html">Quiz</a>
+<a href="progress.html">Progress</a>
+</nav></header><div class="welcome"><h1>Welcome to Your Dashboard! 👋</h1><p>Continue learning and improve your cybersecurity knowledge.</p></div><section><h2>Learning Overview</h2><div class="cards"><div class="card">
+<h3>📚 Total Lessons</h3>
+<p class="number">12</p>
+<p>Available learning modules</p>
+</div><div class="card">
+<h3>✅ Completed Lessons</h3>
+<p class="number" id="completed">0</p>
+<p>Lessons completed</p>
+</div><div class="card">
+<h3>📝 Quiz Score</h3>
+<p class="number">0%</p>
+<p>Your assessment performance</p>
+</div><div class="card">
+<h3>🏆 Certificates</h3>
+<p class="number">0</p>
+<p>Certificates earned</p>
+</div></div></section><section><h2>My Learning Progress</h2><div class="progress-box"><p>Overall learning completion</p><div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div><p id="progressText">0% Completed</p></div></section><section><h2>Quick Access</h2><div class="cards"><div class="card">
+<h3>📖 Learning Modules</h3>
+<p>Explore all 12 cybersecurity topics.</p>
+<a href="lessons.html">Start Learning →</a>
+</div><div class="card">
+<h3>📝 Take a Quiz</h3>
+<p>Test your cybersecurity knowledge.</p>
+<a href="quiz.html">Take Quiz →</a>
+</div><div class="card">
+<h3>💡 Safety Tips</h3>
+<p>Discover practical online safety tips.</p>
+<a href="tips.html">View Tips →</a>
+</div><div class="card">
+<h3>🏆 My Certificates</h3>
+<p>View your earned certificates.</p>
+<a href="certificate.html">View Certificates →</a>
+</div></div></section><section><h2>Cybersecurity Tip of the Day</h2><div class="tips"><p>🔐 Never share your passwords or one-time verification codes with anyone. Use unique passwords and enable multi-factor authentication to protect your accounts.</p></div></section><footer><p>CyberSafe | Cybersecurity Awareness Platform</p>
+<p>© 2026 CyberSafe. All Rights Reserved.</p></footer></body>
+  </html>
