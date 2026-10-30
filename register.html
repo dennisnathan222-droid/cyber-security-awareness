@@ -76,6 +76,11 @@ button:hover {
     background: #126b80;
 }
 
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 .links {
     text-align: center;
     margin-top: 20px;
@@ -91,6 +96,8 @@ button:hover {
     margin-top: 15px;
     text-align: center;
     font-weight: bold;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
 }
 </style>
 </head>
@@ -106,56 +113,262 @@ button:hover {
 <form id="registerForm">
 
 <label>Full Name</label>
-<input type="text" id="name" placeholder="Enter your full name" required>
+<input
+    type="text"
+    id="name"
+    placeholder="Enter your full name"
+    required
+>
 
 <label>Email Address</label>
-<input type="email" id="email" placeholder="Enter your email" required>
+<input
+    type="email"
+    id="email"
+    placeholder="Enter your email"
+    required
+>
 
 <label>Username</label>
-<input type="text" id="username" placeholder="Choose a username" required>
+<input
+    type="text"
+    id="username"
+    placeholder="Choose a username"
+    minlength="3"
+    required
+>
 
 <label>Password</label>
-<input type="password" id="password" placeholder="Create a password" minlength="8" required>
+<input
+    type="password"
+    id="password"
+    placeholder="Create a password"
+    minlength="8"
+    required
+>
 
 <label>Confirm Password</label>
-<input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+<input
+    type="password"
+    id="confirmPassword"
+    placeholder="Confirm your password"
+    required
+>
 
-<button type="submit">Create Account</button>
+<button type="submit" id="registerButton">
+    Create Account
+</button>
 
 </form>
 
 <div id="message" aria-live="polite"></div>
 
 <div class="links">
-<p>Already have an account?</p>
-<a href="login.html">Login Here</a>
-<br><br>
-<a href="index.html">Back to Home</a>
+    <p>Already have an account?</p>
+    <a href="login.html">Login Here</a>
+    <br><br>
+    <a href="index.html">Back to Home</a>
 </div>
 
 </div>
 
-<script>
-document.getElementById("registerForm")
-.addEventListener("submit", function(event) {
+<script type="module">
+
+// FIREBASE IMPORTS
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+
+import {
+    getAuth,
+    createUserWithEmailAndPassword
+}
+from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
+
+import {
+    getFirestore,
+    doc,
+    setDoc,
+    serverTimestamp
+}
+from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
+
+
+// FIREBASE CONFIGURATION
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBLi7Rjgud2UWyCo_VfoIjr5kcDzp5CxKc",
+    authDomain: "cybersafe-awareness.firebaseapp.com",
+    projectId: "cybersafe-awareness",
+    storageBucket: "cybersafe-awareness.firebasestorage.app",
+    messagingSenderId: "364841124280",
+    appId: "1:364841124280:web:e3e86e02e6e967d039cf4d"
+};
+
+
+// INITIALIZE FIREBASE
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+
+// GET FORM ELEMENTS
+
+const form = document.getElementById("registerForm");
+const message = document.getElementById("message");
+const button = document.getElementById("registerButton");
+
+
+// DISPLAY MESSAGES
+
+function showMessage(text, color) {
+    message.style.color = color;
+    message.textContent = text;
+}
+
+
+// STUDENT REGISTRATION
+
+form.addEventListener("submit", async function(event) {
 
     event.preventDefault();
 
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirmPassword").value;
+    const confirmPassword =
+        document.getElementById("confirmPassword").value;
 
-    const message = document.getElementById("message");
+    // VALIDATE PASSWORDS
 
     if (password !== confirmPassword) {
-        message.style.color = "red";
-        message.textContent = "Passwords do not match!";
+        showMessage("Passwords do not match!", "red");
         return;
     }
 
-    message.style.color = "#087e83";
-    message.textContent = "Registration form validated!";
+    if (password.length < 8) {
+        showMessage(
+            "Password must contain at least 8 characters.",
+            "red"
+        );
+        return;
+    }
+
+    if (username.length < 3) {
+        showMessage(
+            "Username must contain at least 3 characters.",
+            "red"
+        );
+        return;
+    }
+
+    // PREVENT MULTIPLE SUBMISSIONS
+
+    button.disabled = true;
+    button.textContent = "Creating Account...";
+
+    showMessage("Connecting to CyberSafe...", "#087e83");
+
+    try {
+
+        // CREATE FIREBASE AUTHENTICATION ACCOUNT
+
+        const userCredential =
+            await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+        const user = userCredential.user;
+
+        // SAVE STUDENT INFORMATION IN FIRESTORE
+
+        await setDoc(doc(db, "students", user.uid), {
+
+            fullName: name,
+            username: username,
+            email: email,
+            createdAt: serverTimestamp()
+
+        });
+
+        showMessage(
+            "Registration successful! Redirecting to login...",
+            "green"
+        );
+
+        form.reset();
+
+        setTimeout(function() {
+            window.location.href = "login.html";
+        }, 2500);
+
+    } catch (error) {
+
+        console.error("CyberSafe Registration Error:", error);
+
+        if (error.code === "auth/email-already-in-use") {
+
+            showMessage(
+                "This email already has an account. Please log in.",
+                "red"
+            );
+
+        } else if (error.code === "auth/weak-password") {
+
+            showMessage(
+                "Firebase rejected this password. Check your Firebase password policy.",
+                "red"
+            );
+
+        } else if (error.code === "auth/invalid-email") {
+
+            showMessage(
+                "Please enter a valid email address.",
+                "red"
+            );
+
+        } else if (error.code === "auth/operation-not-allowed") {
+
+            showMessage(
+                "Email/Password authentication is not enabled in Firebase.",
+                "red"
+            );
+
+        } else if (error.code === "permission-denied") {
+
+            showMessage(
+                "Account created, but saving student details was denied. Check Firestore security rules.",
+                "red"
+            );
+
+        } else if (error.code === "auth/network-request-failed") {
+
+            showMessage(
+                "Network error. Check your internet connection and try again.",
+                "red"
+            );
+
+        } else {
+
+            showMessage(
+                "Registration error: " + error.message,
+                "red"
+            );
+
+        }
+
+    } finally {
+
+        button.disabled = false;
+        button.textContent = "Create Account";
+
+    }
 
 });
+
 </script>
 
 </body>
