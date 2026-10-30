@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact CyberSafe</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6fb;color:#172033;line-height:1.6}
+header{background:#102a43;color:white;text-align:center;padding:30px 20px}
+nav{background:#087f8c;padding:14px;text-align:center}
+nav a{color:white;text-decoration:none;margin:0 10px;font-weight:bold}
+main{max-width:750px;margin:30px auto;padding:15px}
+.card{background:white;padding:25px;border-radius:12px;box-shadow:0 3px 12px #0001}
+input,textarea{width:100%;padding:13px;margin:10px 0;border:1px solid #ccc;border-radius:7px;font-size:15px}
+textarea{min-height:130px;resize:vertical}
+button{background:#087f8c;color:white;border:0;padding:13px 22px;border-radius:7px;font-size:15px;cursor:pointer}
+button:hover{background:#065e68}
+h2{color:#087f8c}
+.notice{background:#e8f4f5;padding:12px;border-radius:8px;font-size:14px}
+footer{text-align:center;background:#102a43;color:white;padding:20px;margin-top:40px}
+@media(max-width:600px){nav a{display:inline-block;margin:6px;font-size:14px}}
+</style>
+</head>
+<body><header>
+<h1>Contact CyberSafe 📩</h1>
+<p>We welcome your questions and feedback.</p>
+</header><nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="lessons.html">Lessons</a>
+<a href="tips.html">Safety Tips</a>
+<a href="contact.html">Contact</a>
+</nav><main>
+<div class="card">
+<h2>Send Us a Message</h2>
+<p>Use the form below to prepare a message about the CyberSafe platform.</p><form id="contactForm">
+<label for="name">Full Name</label>
+<input type="text" id="name" placeholder="Enter your full name" required><label for="email">Email Address</label>
+<input type="email" id="email" placeholder="Enter your email address" required>
+
+<label for="message">Your Message</label>
+
+<textarea id="message" placeholder="Write your message here..." required></textarea><button type="submit">Prepare Email</button>
+
+</form><p id="status"></p><div class="notice">
+<strong>Note:</strong> This is a demonstration contact form. It opens your email application to send a message. It does not store messages on the website.
+</div>
+</div>
+</main><footer>
+<p>© 2026 CyberSafe | Learn Today, Stay Safe Tomorrow.</p>
+</footer><script>
+document.getElementById("contactForm").addEventListener("submit",function(event){
+ event.preventDefault();
+
+ const name=document.getElementById("name").value.trim();
+ const email=document.getElementById("email").value.trim();
+ const message=document.getElementById("message").value.trim();
+
+ const subject=encodeURIComponent("CyberSafe Website Enquiry");
+ const body=encodeURIComponent(
+ "Name: "+name+"\nEmail: "+email+"\n\nMessage:\n"+message
+ );
+
+ document.getElementById("status").textContent=
+ "Your email application should open with your message prepared. Add the project contact email address before using this feature.";
+
+ window.location.href="mailto:?subject="+subject+"&body="+body;
+});
+</script></body>
+</html>
