@@ -115,4 +115,48 @@ button:hover {
 <input type="text" id="username" placeholder="Choose a username" required>
 
 <label>Password</label>
-<input type="password" id="
+<input type="password" id="password" placeholder="Create a password" minlength="8" required>
+
+<label>Confirm Password</label>
+<input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+
+<button type="submit">Create Account</button>
+
+</form>
+
+<div id="message" aria-live="polite"></div>
+
+<div class="links">
+<p>Already have an account?</p>
+<a href="login.html">Login Here</a>
+<br><br>
+<a href="index.html">Back to Home</a>
+</div>
+
+</div>
+
+<script>
+document.getElementById("registerForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    const message = document.getElementById("message");
+
+    if (password !== confirmPassword) {
+        message.style.color = "red";
+        message.textContent = "Passwords do not match!";
+        return;
+    }
+
+    message.style.color = "#087e83";
+    message.textContent = "Registration form validated!";
+
+});
+</script>
+
+</body>
+    </html>
