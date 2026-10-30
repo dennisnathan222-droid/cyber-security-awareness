@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CyberSafe | Cybersecurity Quiz</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #17243b;
+    line-height: 1.6;
+}
+
+header {
+    background: #102344;
+    color: white;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.logo {
+    color: #4de0c1;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 12px;
+}
+
+.hero {
+    background: linear-gradient(135deg, #102344, #126b80);
+    color: white;
+    text-align: center;
+    padding: 45px 6%;
+}
+
+.container {
+    max-width: 750px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.quiz-box {
+    background: white;
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px #10234415;
+}
+
+.question {
+    margin-bottom: 25px;
+}
+
+.question h3 {
+    margin-bottom: 12px;
+    color: #102344;
+}
+
+.question label {
+    display: block;
+    padding: 12px;
+    margin: 8px 0;
+    background: #f0f5fa;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.question label:hover {
+    background: #e0f7f1;
+}
+
+.question input {
+    margin-right: 10px;
+}
+
+button {
+    padding: 13px 20px;
+    background: #102344;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #126b80;
+}
+
+#result {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 8px;
+    display: none;
+}
+
+footer {
+    background: #102344;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+@media(max-width: 500px) {
+    header {
+        justify-content: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">🛡️ CyberSafe</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="lessons.html">Lessons</a>
+</nav>
+
+</header>
+
+<div class="hero">
+
+<h1>Cybersecurity Knowledge Quiz</h1>
+
+<p>Test your knowledge and improve your digital safety skills.</p>
+
+</div>
+
+<div class="container">
+
+<div class="quiz-box">
+
+<h2>Final Assessment</h2>
+
+<p>Answer all 15 questions carefully.</p>
+
+<br>
+
+<form id="quizForm">
+
+<div id="questions"></div>
+
+<button type="submit">Submit Answers</button>
+
+</form>
+
+<div id="result" aria-live="polite"></div>
+
+</div>
+
+</div>
+
+<footer>
+
+<p>CyberSafe | Cybersecurity Awareness Platform</p>
+
+<p>© 2026 CyberSafe. All Rights Reserved.</p>
+
+</footer>
+
+<script>
+
+const questions = [
+
+{
+q: "What is cybersecurity?",
+a: ["Protecting digital systems and information", "Playing computer games", "Browsing social media"],
+correct: 0
+},
+
+{
+q: "What is phishing?",
+a: ["A computer update", "An attempt to steal information through deception", "A programming language"],
+correct: 1
+},
+
+{
+q: "Which password is strongest?",
+a: ["123456", "password", "A long, unique passphrase"],
+correct: 2
+},
+
+{
+q: "What should you do with suspicious links?",
+a: ["Click immediately", "Verify before clicking", "Share with friends"],
+correct: 1
+},
+
+{
+q: "What does malware mean?",
+a: ["Malicious software", "A search engine", "A computer keyboard"],
+correct: 0
+},
+
+{
+q: "What is ransomware?",
+a: ["Software that encrypts files and demands payment", "An antivirus program", "A social media application"],
+correct: 0
+},
+
+{
+q: "What is two-factor authentication?",
+a: ["Using two usernames", "An additional identity verification method", "Sharing passwords"],
+correct: 1
+},
+
+{
+q: "What is social engineering?",
+a: ["Building websites", "Manipulating people to reveal information", "Repairing computers"],
+correct: 1
+},
+
+{
+q: "What should you do when using public Wi-Fi?",
+a: ["Share your passwords", "Avoid sensitive activities on untrusted networks", "Disable all security"],
+correct: 1
+},
+
+{
+q: "What is identity theft?",
+a: ["Creating a new account", "Using another person's personal information without permission", "Changing a password"],
+correct: 1
+},
+
+{
+q: "What is a firewall?",
+a: ["A network security system", "A social media platform", "A type of virus"],
+correct: 0
+},
+
+{
+q: "Why are software updates important?",
+a: ["They remove all files", "They can fix security vulnerabilities", "They expose passwords"],
+correct: 1
+},
+
+{
+q: "What should you do if your account is hacked?",
+a: ["Ignore it", "Report it and secure the account", "Share your password"],
+correct: 1
+},
+
+{
+q: "Which information should you protect?",
+a: ["Banking details and passwords", "Public weather reports", "General news"],
+correct: 0
+},
+
+{
+q: "What is the safest way to protect online accounts?",
+a: ["Reuse one password", "Share passwords", "Use unique passwords and MFA"],
+correct: 2
+}
+
+];
+
+const questionsContainer = document.getElementById("questions");
+
+questions.forEach((item, index) => {
+
+    let html = `
+    <div class="question">
+
+    <h3>${index + 1}. ${item.q}</h3>
+    `;
+
+    item.a.forEach((option, optionIndex) => {
+
+        html += `
+        <label>
+        <input type="radio"
+        name="q${index}"
+        value="${optionIndex}">
+        ${option}
+        </label>
+        `;
+
+    });
+
+    html += `</div>`;
+
+    questionsContainer.innerHTML += html;
+
+});
+
+document.getElementById("quizForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let score = 0;
+    let unanswered = 0;
+
+    questions.forEach((item, index) => {
+
+        const selected = document.querySelector(
+            'input[name="q' + index + '"]:checked'
+        );
+
+        if (!selected) {
+            unanswered++;
+        }
+
+        else if (Number(selected.value) === item.correct) {
+            score++;
+        }
+
+    });
+
+    const result = document.getElementById("result");
+
+    if (unanswered > 0) {
+
+        result.style.display = "block";
+        result.style.background = "#fff3cd";
+        result.textContent =
+        "Please answer all " + questions.length +
+        " questions. You have " + unanswered +
+        " unanswered questions.";
+
+        return;
+
+    }
+
+    const percentage = Math.round(
+        (score / questions.length) * 100
+    );
+
+    const passed = percentage >= 70;
+
+    localStorage.setItem("cyberQuizScore", percentage);
+
+    result.style.display = "block";
+    result.style.background = passed ? "#e0f7f1" : "#ffe5e5";
+
+    result.innerHTML = `
+        <h2>${passed ? "Congratulations! 🎉" : "Keep Practising!"}</h2>
+
+        <h3>Your Score: ${score}/${questions.length}</h3>
+
+        <h3>Percentage: ${percentage}%</h3>
+
+        <p>${passed ?
+        "You passed the cybersecurity assessment!" :
+        "You did not reach the required 70%. Review your lessons and try again."}
+        </p>
+
+        <br>
+
+        <button onclick="location.reload()">Try Again</button>
+
+        <br><br>
+
+        <a href="dashboard.html">Return to Dashboard</a>
+    `;
+
+    if (passed) {
+        localStorage.setItem("cyberQuizPassed", "true");
+    }
+
+});
+
+</script>
+
+</body>
+</html>
