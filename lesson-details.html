@@ -1,0 +1,488 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CyberSafe | Lesson Details</title><style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #17243b;
+    line-height: 1.7;
+}
+
+header {
+    background: #102344;
+    color: white;
+    padding: 18px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.logo {
+    color: #4de0c1;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 12px;
+}
+
+.hero {
+    background: linear-gradient(135deg, #102344, #126b80);
+    color: white;
+    text-align: center;
+    padding: 45px 6%;
+}
+
+.hero h1 {
+    margin-bottom: 10px;
+}
+
+.container {
+    max-width: 850px;
+    margin: 35px auto;
+    padding: 0 18px;
+}
+
+.lesson-box {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px #10234412;
+}
+
+h2 {
+    color: #102344;
+    margin: 20px 0 10px;
+}
+
+ul {
+    padding-left: 25px;
+}
+
+.lesson-box p {
+    margin-bottom: 12px;
+}
+
+.notice {
+    background: #e0f7f1;
+    padding: 18px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    background: #102344;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #126b80;
+}
+
+.complete {
+    background: #087e83;
+}
+
+#status {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #087e83;
+}
+
+footer {
+    background: #102344;
+    color: white;
+    text-align: center;
+    padding: 22px;
+    margin-top: 40px;
+}
+
+@media(max-width: 500px) {
+    header {
+        justify-content: center;
+    }
+
+    .lesson-box {
+        padding: 20px;
+    }
+}
+</style></head><body><header><div class="logo">🛡️ CyberSafe</div><nav>
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="lessons.html">Lessons</a>
+<a href="quiz.html">Quiz</a>
+</nav></header><div class="hero"><h1 id="lessonTitle">Cybersecurity Lesson</h1><p>Learn, understand and practise safe digital habits.</p></div><div class="container"><div class="lesson-box"><h2>Introduction</h2><p id="introduction"></p><h2>Learning Objectives</h2><ul id="objectives"></ul><h2>Lesson Content</h2><div id="content"></div><div class="notice"><strong>Remember:</strong>
+
+<p id="safetyTip"></p></div><h2>Key Takeaways</h2><p id="takeaway"></p><div class="buttons"><button onclick="previousLesson()">← Previous</button>
+
+<button class="complete" onclick="completeLesson()">
+Mark as Completed ✓
+</button><button onclick="nextLesson()">Next →</button>
+
+</div><p id="status" aria-live="polite"></p></div></div><footer><p>CyberSafe | Cybersecurity Awareness Platform</p><p>© 2026 CyberSafe. All Rights Reserved.</p></footer><script>
+
+const lessons = [
+
+{
+title: "Introduction to Cybersecurity",
+intro: "Cybersecurity is the practice of protecting computers, mobile devices, networks and digital information against unauthorized access, attacks and damage.",
+
+objectives: [
+"Understand the meaning of cybersecurity.",
+"Identify common cyber threats.",
+"Understand the importance of digital safety."
+],
+
+content: [
+["What is Cybersecurity?", "Cybersecurity involves technologies, processes and practices designed to protect digital systems and information from cyber threats."],
+["Why is Cybersecurity Important?", "People use the internet for communication, education, banking and business. Cybersecurity helps protect personal information, financial records and digital identities."],
+["Common Cyber Threats", "Common threats include phishing, malware, ransomware, identity theft, password attacks and online fraud."],
+["Basic Protection", "Keep software updated, use strong passwords, enable multi-factor authentication and avoid suspicious links."]
+],
+
+tip: "Always protect your personal information and think carefully before clicking unfamiliar links.",
+
+takeaway: "Cybersecurity is everyone's responsibility. Safe digital habits help prevent cyber incidents."
+},
+
+{
+title: "Password Security",
+intro: "Passwords protect access to personal accounts, devices and sensitive information.",
+
+objectives: [
+"Understand strong password practices.",
+"Recognize weak passwords.",
+"Learn about password managers and multi-factor authentication."
+],
+
+content: [
+["Creating Strong Passwords", "Use long, unique passwords or passphrases that are difficult to guess. Avoid using names, birthdays or common words."],
+["Avoid Password Reuse", "Never use the same password for all your accounts. If one account is compromised, reused passwords can put other accounts at risk."],
+["Password Managers", "Password managers help generate and securely store unique passwords."],
+["Multi-Factor Authentication", "Multi-factor authentication adds another verification step when accessing an account."]
+],
+
+tip: "Never share your passwords or one-time verification codes with anyone.",
+
+takeaway: "Unique passwords and multi-factor authentication help protect your accounts."
+},
+
+{
+title: "Phishing Awareness",
+intro: "Phishing is a cyberattack in which criminals pretend to be trusted individuals or organizations to trick people into revealing sensitive information.",
+
+objectives: [
+"Understand phishing attacks.",
+"Identify suspicious messages.",
+"Learn how to avoid phishing scams."
+],
+
+content: [
+["What is Phishing?", "Phishing involves fraudulent emails, text messages, phone calls or websites designed to steal personal information."],
+["Warning Signs", "Watch out for urgent requests, suspicious links, spelling mistakes, unexpected attachments and requests for passwords."],
+["Fake Websites", "Some criminals create websites that imitate legitimate banking, shopping or social media platforms."],
+["Protection", "Verify the sender independently. Visit websites using trusted addresses instead of following suspicious links."]
+],
+
+tip: "Never enter your password or banking information through an unverified link.",
+
+takeaway: "Always verify unexpected messages before responding or sharing information."
+},
+
+{
+title: "Malware and Computer Viruses",
+intro: "Malware is malicious software designed to damage devices, steal information or gain unauthorized access.",
+
+objectives: [
+"Understand malware.",
+"Identify common malware types.",
+"Learn basic prevention methods."
+],
+
+content: [
+["Computer Viruses", "Viruses are malicious programs that attach themselves to files or programs and may spread when those files are executed."],
+["Ransomware", "Ransomware can lock or encrypt files and demand payment for their release."],
+["Spyware", "Spyware secretly collects information about a user's activities."],
+["Prevention", "Install trusted security software, update applications and avoid suspicious downloads."]
+],
+
+tip: "Download applications only from trusted sources and maintain regular backups.",
+
+takeaway: "Good device security practices reduce the risk of malware infections."
+},
+
+{
+title: "Social Engineering Attacks",
+intro: "Social engineering involves manipulating people into revealing confidential information or performing actions that compromise security.",
+
+objectives: [
+"Understand social engineering.",
+"Recognize manipulation techniques.",
+"Learn prevention strategies."
+],
+
+content: [
+["Meaning", "Attackers exploit human trust, fear, curiosity or urgency to manipulate their targets."],
+["Impersonation", "Criminals may pretend to be bank officials, employers, technical support staff or friends."],
+["Pretexting", "An attacker creates a false story to convince someone to reveal information."],
+["Protection", "Verify identities, question unusual requests and never disclose confidential information without authorization."]
+],
+
+tip: "Do not trust an unusual request simply because it appears to come from someone you know.",
+
+takeaway: "Always verify identities before sharing sensitive information."
+},
+
+{
+title: "Internet and Web Security",
+intro: "Internet security involves protecting devices, accounts and information while browsing and using online services.",
+
+objectives: [
+"Understand safe browsing.",
+"Recognize secure websites.",
+"Learn about public Wi-Fi risks."
+],
+
+content: [
+["Safe Browsing", "Avoid suspicious websites, unknown downloads and unexpected pop-ups."],
+["HTTPS", "HTTPS helps encrypt communication between your browser and a website. However, it does not automatically mean that a website is trustworthy."],
+["Public Wi-Fi", "Public networks may expose users to security risks. Avoid sensitive activities on untrusted networks."],
+["Protection", "Keep browsers updated and use trusted websites and secure connections."]
+],
+
+tip: "Always check website addresses carefully before entering personal information.",
+
+takeaway: "Responsible browsing helps protect your information online."
+},
+
+{
+title: "Mobile Device Security",
+intro: "Mobile device security protects smartphones and tablets against unauthorized access, malicious applications and information theft.",
+
+objectives: [
+"Understand smartphone security.",
+"Manage application permissions.",
+"Protect mobile information."
+],
+
+content: [
+["Screen Locks", "Use a strong PIN, password or biometric authentication to protect your device."],
+["Application Permissions", "Review the permissions requested by applications and deny unnecessary access."],
+["Mobile Updates", "Install security updates and application updates from trusted sources."],
+["Device Protection", "Enable device-finding features and regularly back up important information."]
+],
+
+tip: "Never install applications from unknown or untrusted sources.",
+
+takeaway: "Protecting your smartphone is an important part of cybersecurity."
+},
+
+{
+title: "Social Media Security",
+intro: "Social media security involves protecting personal information and online accounts across social networking platforms.",
+
+objectives: [
+"Protect social media accounts.",
+"Understand privacy settings.",
+"Identify fake profiles and scams."
+],
+
+content: [
+["Privacy Settings", "Review your privacy settings and control who can view your personal information."],
+["Fake Accounts", "Be careful when accepting friend requests from unfamiliar profiles."],
+["Oversharing", "Avoid publicly sharing sensitive details such as home addresses and travel plans."],
+["Account Protection", "Use unique passwords and enable multi-factor authentication."]
+],
+
+tip: "Think carefully before sharing personal information on social media.",
+
+takeaway: "Good social media habits protect your identity and privacy."
+},
+
+{
+title: "Data Privacy and Protection",
+intro: "Data privacy concerns how personal information is collected, stored, accessed and shared.",
+
+objectives: [
+"Understand data privacy.",
+"Identify sensitive personal information.",
+"Learn data protection methods."
+],
+
+content: [
+["Personal Information", "Information such as names, addresses, phone numbers and financial details should be protected."],
+["Data Protection", "Organizations and individuals should use appropriate measures to prevent unauthorized access to information."],
+["Secure File Sharing", "Share files only with trusted recipients using secure services."],
+["Data Backup", "Regular backups help recover information following accidental deletion or certain cyber incidents."]
+],
+
+tip: "Share only the personal information that is necessary and appropriate.",
+
+takeaway: "Responsible data handling helps protect privacy and prevent information exposure."
+},
+
+{
+title: "Cybercrime and Online Fraud",
+intro: "Cybercrime involves illegal activities carried out using computers, networks or digital devices.",
+
+objectives: [
+"Understand online fraud.",
+"Recognize financial scams.",
+"Learn how to report cybercrime."
+],
+
+content: [
+["Online Banking Fraud", "Criminals may use fake banking messages and websites to steal financial information."],
+["Identity Theft", "Identity theft occurs when someone uses another person's personal information without permission."],
+["Fake Giveaways", "Fraudsters may advertise fake prizes to trick victims into making payments or sharing sensitive details."],
+["Reporting", "Preserve relevant evidence and report suspected cybercrime to the appropriate authorities."]
+],
+
+tip: "Verify payment requests and never share your banking PIN or one-time verification codes.",
+
+takeaway: "Awareness and verification can help prevent online financial fraud."
+},
+
+{
+title: "Network Security",
+intro: "Network security involves protecting computer networks and connected devices against unauthorized access and attacks.",
+
+objectives: [
+"Understand network security.",
+"Learn about firewalls.",
+"Understand VPNs and Wi-Fi security."
+],
+
+content: [
+["Network Security", "Network security uses policies and technologies to protect communication systems and connected devices."],
+["Firewalls", "Firewalls monitor and control network traffic according to defined security rules."],
+["VPNs", "Virtual Private Networks can encrypt network traffic between a device and a VPN server."],
+["Wi-Fi Protection", "Use strong Wi-Fi passwords and modern encryption settings on your wireless router."]
+],
+
+tip: "Change default router passwords and keep network equipment updated.",
+
+takeaway: "Secure networks help protect connected devices and information."
+},
+
+{
+title: "Incident Response and Recovery",
+intro: "Incident response involves identifying, managing and recovering from cybersecurity incidents.",
+
+objectives: [
+"Recognize compromised accounts.",
+"Understand incident reporting.",
+"Learn recovery procedures."
+],
+
+content: [
+["Recognizing Incidents", "Warning signs may include unfamiliar account logins, unexpected password changes and suspicious transactions."],
+["Immediate Action", "Use a trusted device to secure affected accounts and change compromised passwords."],
+["Reporting", "Notify the affected service provider, organization or appropriate authority."],
+["Recovery", "Restore clean backups where necessary, review account activity and strengthen security measures."]
+],
+
+tip: "If an account is compromised, act quickly and report the incident through official channels.",
+
+takeaway: "A quick and organized response can reduce the damage caused by cyber incidents."
+}
+
+];
+
+const params = new URLSearchParams(window.location.search);
+
+let current = Number(params.get("module")) || 1;
+
+if (current < 1 || current > lessons.length) {
+    current = 1;
+}
+
+function displayLesson() {
+
+    const lesson = lessons[current - 1];
+
+    document.getElementById("lessonTitle").textContent =
+        "Module " + current + ": " + lesson.title;
+
+    document.getElementById("introduction").textContent =
+        lesson.intro;
+
+    document.getElementById("objectives").innerHTML =
+        lesson.objectives.map(item => "<li>" + item + "</li>").join("");
+
+    document.getElementById("content").innerHTML =
+        lesson.content.map(item =>
+        "<h2>" + item[0] + "</h2><p>" + item[1] + "</p>"
+        ).join("");
+
+    document.getElementById("safetyTip").textContent =
+        lesson.tip;
+
+    document.getElementById("takeaway").textContent =
+        lesson.takeaway;
+
+    document.getElementById("status").textContent =
+        localStorage.getItem("cyberLesson" + current) === "completed"
+        ? "✓ You have completed this lesson."
+        : "";
+
+}
+
+function completeLesson() {
+
+    localStorage.setItem("cyberLesson" + current, "completed");
+
+    document.getElementById("status").textContent =
+        "Congratulations! Lesson " + current + " completed successfully.";
+
+}
+
+function previousLesson() {
+
+    if (current > 1) {
+        current--;
+        window.location.href = "lesson-details.html?module=" + current;
+    }
+
+}
+
+function nextLesson() {
+
+    if (current < lessons.length) {
+        current++;
+        window.location.href = "lesson-details.html?module=" + current;
+    } else {
+        window.location.href = "quiz.html";
+    }
+
+}
+
+displayLesson();
+
+</script></body>
+</html>
