@@ -1,0 +1,234 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CyberSafe | Learning Centre</title><style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #17243b;
+    line-height: 1.6;
+}
+
+header {
+    background: #102344;
+    padding: 20px 6%;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    color: #4de0c1;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 12px;
+}
+
+.hero {
+    background: linear-gradient(135deg, #102344, #126b80);
+    padding: 55px 7%;
+    color: white;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+}
+
+section {
+    padding: 40px 6%;
+}
+
+h2 {
+    text-align: center;
+    color: #102344;
+    margin-bottom: 25px;
+}
+
+.search-box {
+    max-width: 550px;
+    margin: 0 auto 30px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+.modules {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.module {
+    background: white;
+    padding: 23px;
+    border-radius: 12px;
+    box-shadow: 0 3px 14px #10234415;
+    border-top: 4px solid #4de0c1;
+}
+
+.module h3 {
+    color: #102344;
+    margin: 10px 0;
+}
+
+.icon {
+    font-size: 35px;
+}
+
+.module button {
+    margin-top: 15px;
+    padding: 10px 17px;
+    background: #102344;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.module button:hover {
+    background: #126b80;
+}
+
+footer {
+    background: #102344;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+@media(max-width: 500px) {
+    header {
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 13px;
+        margin: 5px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+}
+</style></head><body><header><div class="logo">🛡️ CyberSafe</div><nav>
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="quiz.html">Quiz</a>
+<a href="login.html">Login</a>
+</nav></header><div class="hero"><h1>Cybersecurity Learning Centre</h1><p>
+Explore our learning modules and develop the knowledge
+and skills needed to stay safe in the digital world.
+</p></div><section><h2>Available Learning Modules</h2><div class="search-box">
+<input type="text" id="search"
+placeholder="Search for a cybersecurity topic...">
+</div><div class="modules" id="modules"><article class="module">
+<div class="icon">🛡️</div>
+<h3>1. Introduction to Cybersecurity</h3>
+<p>Understand cybersecurity, its importance, common threats and basic security concepts.</p>
+<button onclick="openLesson(1)">Start Learning</button>
+</article><article class="module">
+<div class="icon">🔐</div>
+<h3>2. Password Security</h3>
+<p>Learn how to create strong passwords, use password managers and enable two-factor authentication.</p>
+<button onclick="openLesson(2)">Start Learning</button>
+</article><article class="module">
+<div class="icon">🎣</div>
+<h3>3. Phishing Awareness</h3>
+<p>Identify suspicious emails, fake websites, malicious links and phishing scams.</p>
+<button onclick="openLesson(3)">Start Learning</button>
+</article><article class="module">
+<div class="icon">🦠</div>
+<h3>4. Malware and Computer Viruses</h3>
+<p>Understand viruses, spyware, ransomware and how to protect your devices.</p>
+<button onclick="openLesson(4)">Start Learning</button>
+</article><article class="module">
+<div class="icon">🎭</div>
+<h3>5. Social Engineering Attacks</h3>
+<p>Learn how cybercriminals manipulate people into revealing confidential information.</p>
+<button onclick="openLesson(5)">Start Learning</button>
+</article><article class="module">
+<div class="icon">🌐</div>
+<h3>6. Internet and Web Security</h3>
+<p>Discover safe browsing practices, secure websites and public Wi-Fi protection.</p>
+<button onclick="openLesson(6)">Start Learning</button>
+</article><article class="module">
+<div class="icon">📱</div>
+<h3>7. Mobile Device Security</h3>
+<p>Learn how to protect smartphones, applications and personal information.</p>
+<button onclick="openLesson(7)">Start Learning</button>
+</article><article class="module">
+<div class="icon">👥</div>
+<h3>8. Social Media Security</h3>
+<p>Protect social media accounts, manage privacy settings and identify fake profiles.</p>
+<button onclick="openLesson(8)">Start Learning</button>
+</article><article class="module">
+<div class="icon">🔒</div>
+<h3>9. Data Privacy and Protection</h3>
+<p>Understand data privacy, personal information protection and secure file sharing.</p>
+<button onclick="openLesson(9)">Start Learning</button>
+</article><article class="module">
+<div class="icon">🚨</div>
+<h3>10. Cybercrime and Online Fraud</h3>
+<p>Recognize online banking fraud, financial scams and identity theft.</p>
+<button onclick="openLesson(10)">Start Learning</button>
+</article><article class="module">
+<div class="icon">📶</div>
+<h3>11. Network Security</h3>
+<p>Learn about Wi-Fi security, firewalls, VPNs and secure network practices.</p>
+<button onclick="openLesson(11)">Start Learning</button>
+</article><article class="module">
+<div class="icon">🧯</div>
+<h3>12. Incident Response and Recovery</h3>
+<p>Learn what to do when an account or device is compromised and how to recover safely.</p>
+<button onclick="openLesson(12)">Start Learning</button>
+</article></div></section><footer>
+<p>CyberSafe | Cybersecurity Awareness and Training Platform</p>
+<p>© 2026 CyberSafe. All Rights Reserved.</p>
+</footer><script>
+
+function openLesson(number) {
+    window.location.href = "lesson-details.html?module=" + number;
+}
+
+document.getElementById("search").addEventListener("input", function() {
+
+    let searchValue = this.value.toLowerCase();
+
+    document.querySelectorAll(".module").forEach(function(module) {
+
+        module.style.display =
+        module.textContent.toLowerCase().includes(searchValue)
+        ? "block" : "none";
+
+    });
+
+});
+
+</script></body>
+</html>
