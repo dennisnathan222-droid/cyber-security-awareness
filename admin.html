@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | CyberSafe</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f5f9;color:#172033}
+header{background:#102a43;color:white;padding:22px;text-align:center}
+nav{background:#087f8c;padding:14px;text-align:center}
+nav a{color:white;text-decoration:none;margin:0 10px;font-weight:bold}
+main{max-width:1000px;margin:30px auto;padding:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}
+.card{background:white;padding:22px;border-radius:12px;box-shadow:0 3px 12px #0001;margin-bottom:20px}
+.stat{font-size:30px;color:#087f8c;font-weight:bold;margin:10px 0}
+h2{color:#087f8c}
+button{background:#087f8c;color:white;border:0;padding:12px 18px;border-radius:7px;cursor:pointer}
+button:hover{background:#065e68}
+.notice{background:#fff3cd;color:#664d03;padding:15px;border-radius:8px;margin-bottom:20px}
+footer{text-align:center;background:#102a43;color:white;padding:20px;margin-top:40px}
+@media(max-width:600px){nav a{display:inline-block;margin:6px;font-size:14px}}
+</style>
+</head>
+<body><header>
+<h1>🛡️ CyberSafe Admin Dashboard</h1>
+<p>Platform Administration Panel</p>
+</header><nav>
+<a href="index.html">Home</a>
+<a href="dashboard.html">Student Dashboard</a>
+<a href="lessons.html">Lessons</a>
+<a href="progress.html">Progress</a>
+</nav><main><div class="notice">
+<strong>Prototype notice:</strong> This is a demonstration admin dashboard. It does not yet have secure administrator login or access to a shared student database.
+</div><h2>Platform Overview</h2><div class="grid">
+<div class="card">
+<h3>Total Lessons</h3>
+<div class="stat">12</div>
+<p>Available learning modules</p>
+</div><div class="card">
+<h3>Quiz Questions</h3>
+<div class="stat">15</div>
+<p>Questions in the current quiz</p>
+</div><div class="card">
+<h3>Pass Mark</h3>
+<div class="stat">70%</div>
+<p>Required quiz score</p>
+</div><div class="card">
+<h3>Platform Status</h3>
+<div class="stat">Active</div>
+<p>Website demonstration</p>
+</div>
+</div><div class="card">
+<h2>Learning Content</h2>
+<p>Manage and review the educational pages available on CyberSafe.</p>
+<p><a href="lessons.html">View Learning Modules</a></p>
+<p><a href="quiz.html">View Cyber Security Quiz</a></p>
+<p><a href="tips.html">View Safety Tips</a></p>
+</div><div class="card">
+<h2>Student Performance</h2>
+<p>Students can view their individual learning progress and quiz results.</p>
+<p><a href="leaderboard.html">View Leaderboard</a></p>
+<p><a href="progress.html">View Progress Page</a></p>
+<p><a href="certificate.html">View Certificate Page</a></p>
+</div><div class="card">
+<h2>Admin Responsibilities</h2>
+<ul>
+<li>Review learning materials.</li>
+<li>Update cyber security awareness content.</li>
+<li>Monitor student performance when connected to the database.</li>
+<li>Review quiz questions and learning activities.</li>
+<li>Maintain the platform and its security.</li>
+</ul>
+</div></main><footer>
+<p>© 2026 CyberSafe | Administration Panel</p>
+</footer></body>
+  </html>
