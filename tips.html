@@ -1,0 +1,322 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CyberSafe | Safety Tips</title><style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #17243b;
+    line-height: 1.6;
+}
+
+header {
+    background: #102344;
+    color: white;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.logo {
+    color: #4de0c1;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 12px;
+}
+
+.hero {
+    background: linear-gradient(135deg, #102344, #126b80);
+    color: white;
+    text-align: center;
+    padding: 55px 6%;
+}
+
+.hero h1 {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+}
+
+section {
+    padding: 40px 6%;
+}
+
+h2 {
+    text-align: center;
+    color: #102344;
+    margin-bottom: 25px;
+}
+
+.daily-tip {
+    background: #e0f7f1;
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 750px;
+    margin: auto auto 35px;
+    text-align: center;
+}
+
+.daily-tip h3 {
+    color: #087e83;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 11px 18px;
+    background: #102344;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #126b80;
+}
+
+.search {
+    max-width: 550px;
+    margin: 0 auto 30px;
+}
+
+.search input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.tip-card {
+    background: white;
+    padding: 23px;
+    border-radius: 12px;
+    border-top: 4px solid #4de0c1;
+    box-shadow: 0 3px 14px #10234412;
+}
+
+.tip-card h3 {
+    color: #102344;
+    margin: 10px 0;
+}
+
+.icon {
+    font-size: 34px;
+}
+
+footer {
+    background: #102344;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+@media(max-width: 500px) {
+
+    header {
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 13px;
+        margin: 5px;
+    }
+
+    .hero h1 {
+        font-size: 27px;
+    }
+
+}
+
+</style></head><body><header><div class="logo">🛡️ CyberSafe</div><nav>
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="lessons.html">Lessons</a>
+<a href="quiz.html">Quiz</a>
+</nav></header><div class="hero"><h1>Cybersecurity Safety Tips</h1><p>
+Discover practical ways to protect your personal
+information, devices and online accounts.
+</p></div><section><div class="daily-tip"><h3>💡 Cybersecurity Tip of the Day</h3><p id="dailyTip">
+Use strong and unique passwords for all your online accounts.
+</p><button onclick="generateTip()">
+Show Another Tip
+</button></div><h2>Important Safety Recommendations</h2><div class="search"><input type="text"
+id="searchInput"
+placeholder="Search cybersecurity tips...">
+
+</div><div class="tips-grid" id="tipsGrid"><div class="tip-card">
+<div class="icon">🔐</div>
+<h3>Password Security</h3>
+<p>
+Use long, unique passwords for different accounts.
+Avoid sharing your passwords with anyone.
+Enable multi-factor authentication whenever possible.
+</p>
+</div><div class="tip-card">
+<div class="icon">🎣</div>
+<h3>Email Protection</h3>
+<p>
+Avoid opening suspicious email attachments.
+Verify unexpected messages and never enter your
+password through untrusted links.
+</p>
+</div><div class="tip-card">
+<div class="icon">📱</div>
+<h3>Mobile Phone Security</h3>
+<p>
+Protect your phone with a strong screen lock.
+Install applications from trusted sources and
+keep your operating system updated.
+</p>
+</div><div class="tip-card">
+<div class="icon">🌐</div>
+<h3>Safe Browsing</h3>
+<p>
+Check website addresses before entering personal
+information. Avoid suspicious websites and
+unnecessary downloads.
+</p>
+</div><div class="tip-card">
+<div class="icon">👥</div>
+<h3>Social Media Safety</h3>
+<p>
+Review privacy settings, avoid oversharing personal
+information and be careful when accepting requests
+from unfamiliar accounts.
+</p>
+</div><div class="tip-card">
+<div class="icon">🏦</div>
+<h3>Online Banking Safety</h3>
+<p>
+Never share your banking PIN or verification codes.
+Use official banking applications and report
+suspicious transactions immediately.
+</p>
+</div><div class="tip-card">
+<div class="icon">📶</div>
+<h3>Wi-Fi Protection</h3>
+<p>
+Avoid sensitive transactions on untrusted public
+networks. Secure your home Wi-Fi with a strong
+password and modern encryption.
+</p>
+</div><div class="tip-card">
+<div class="icon">🦠</div>
+<h3>Malware Prevention</h3>
+<p>
+Install trusted security software, update your
+applications and avoid downloading unknown files.
+Back up important information regularly.
+</p>
+</div><div class="tip-card">
+<div class="icon">🕵️</div>
+<h3>Protect Your Identity</h3>
+<p>
+Keep sensitive information private. Do not
+unnecessarily share your home address, financial
+details or identification documents online.
+</p>
+</div><div class="tip-card">
+<div class="icon">🚨</div>
+<h3>Online Scam Prevention</h3>
+<p>
+Be suspicious of unexpected prizes, urgent payment
+requests and offers that appear too good to be true.
+Always verify before making payments.
+</p>
+</div><div class="tip-card">
+<div class="icon">🔄</div>
+<h3>Software Updates</h3>
+<p>
+Install operating system and application updates
+promptly. Updates often contain important security
+fixes.
+</p>
+</div><div class="tip-card">
+<div class="icon">💾</div>
+<h3>Data Backup</h3>
+<p>
+Keep backup copies of important documents and
+photos in secure locations. Test your backups
+occasionally.
+</p>
+</div></div></section><footer><p>CyberSafe | Cybersecurity Awareness and Training Platform</p><p>© 2026 CyberSafe. All Rights Reserved.</p></footer><script>
+
+const tips = [
+
+"Use strong and unique passwords for all your online accounts.",
+
+"Never share your banking PIN or one-time verification codes.",
+
+"Think carefully before clicking unfamiliar links.",
+
+"Enable multi-factor authentication on important accounts.",
+
+"Keep your phone and computer software updated.",
+
+"Do not download applications from untrusted sources.",
+
+"Verify unexpected payment requests before sending money.",
+
+"Review your social media privacy settings regularly.",
+
+"Back up important files to a secure location.",
+
+"Report suspicious online activities to the appropriate authorities."
+
+];
+
+function generateTip() {
+
+    const randomIndex = Math.floor(Math.random() * tips.length);
+
+    document.getElementById("dailyTip").textContent =
+        tips[randomIndex];
+
+}
+
+document.getElementById("searchInput")
+.addEventListener("input", function() {
+
+    const searchValue = this.value.toLowerCase();
+
+    document.querySelectorAll(".tip-card").forEach(card => {
+
+        card.style.display =
+        card.textContent.toLowerCase().includes(searchValue)
+        ? "block" : "none";
+
+    });
+
+});
+
+</script></body>
+  </html>
